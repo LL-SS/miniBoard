@@ -14,10 +14,10 @@ router.get(
 );
 
 router.get(
-  "/:title",
+  "/:id",
   asyncHandler(async (req, res) => {
-    const title = req.params.title;
-    const post = await Post.findOne({ title });
+    const postId = req.params.id;
+    const post = await Post.findById(postId);
 
     res.render("post", { post });
   })

@@ -15,11 +15,8 @@ router.get(
 router.post(
   "/",
   asyncHandler(async (req, res) => {
-    const post = req.body;
-    const title = post.title;
-    const author = post.author;
-    const content = post.content;
-
+    const { title, author, content } = req.body;
+    
     await Post.create({
       title,
       author,

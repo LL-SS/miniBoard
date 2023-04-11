@@ -4,6 +4,8 @@ block content
   ul 
   each list in postList 
     li
-      a(href='/list/' + list.title) #{list.title}
-  a(href='/create') create
-  a(href='/') back
+      a(href='/list/' + list.id) #{list.title}
+  p
+    a(href='/create') create
+  p
+    a(href='/') back

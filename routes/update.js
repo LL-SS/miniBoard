@@ -18,17 +18,15 @@ router.post(
   "/:id",
   asyncHandler(async (req, res) => {
     const postId = req.params.id;
-    const post = req.body;
-    const title = post.title;
-    const author = post.author;
-    const content = post.content;
-    const updateResult = await Post.findByIdAndUpdate(postId, {
+    const { title, author, content } = req.body;
+
+    await Post.findByIdAndUpdate(postId, {
       title: title,
       author: author,
       content: content,
     });
 
-    res.send(updateResult);
+    res.redirect(`/list/${postId}`);
   })
 );
 
