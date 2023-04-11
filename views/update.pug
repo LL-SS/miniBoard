@@ -1,0 +1,13 @@
+extends layout 
+
+block content 
+  form(action='/update/' + post.id, method='post')
+    p
+      input(placeholder='title', name='title', value=post.title)
+    p 
+      input(placeholder='author', name='author', value=post.author)
+    p
+      textarea(placeholder='content', name='content') #{post.content}
+    p 
+      input(type='submit', value='submit')
+    a(href='/list') back

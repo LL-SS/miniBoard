@@ -4,4 +4,7 @@ block content
   p=post.title 
   p=post.author 
   p=post.content
+  a(href='/update/' + post.id) update
+  form(action='/delete/' + post.id, method='post')
+    input(type='submit', value='delete')
   a(href='/list') back
