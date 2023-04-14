@@ -11,6 +11,7 @@ require('dotenv').config();
 
 const indexRouter = require('./routes/index');
 const listRouter = require('./routes/list');
+const postRouter = require('./routes/post');
 const createRouter = require('./routes/create');
 const updateRouter = require('./routes/update');
 const deleteRouter = require('./routes/delete');
@@ -36,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/list', listRouter);
+app.use('/post', postRouter);
 app.use('/create', createRouter);
 app.use('/update', updateRouter);
 app.use('/delete', deleteRouter);

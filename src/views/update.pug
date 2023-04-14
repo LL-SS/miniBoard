@@ -10,4 +10,4 @@ block content
       textarea(placeholder='content', name='content') #{post.content}
     p 
       input(type='submit', value='submit')
-    a(href='/list') back
+  a(href='/list/' + post.id) back
