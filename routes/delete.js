@@ -9,7 +9,7 @@ router.post(
   asyncHandler(async (req, res) => {
     const postId = req.params.id;
 
-    const result = await Post.findByIdAndDelete(postId);
+    await Post.findByIdAndDelete(postId);
 
     res.redirect("/list");
   })

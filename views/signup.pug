@@ -1,0 +1,13 @@
+extends layout 
+
+block content 
+  p This is signup page
+  form(action='/auth/signup', method='post')
+    p
+      input(placeholder='email', name='email')
+    p 
+      input(placeholder='password', name='password')
+    p 
+      input(type='submit', value='submit')
+    p
+      a(href='/') back

@@ -1,21 +1,22 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var mongoose = require('mongoose');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const mongoose = require('mongoose');
 
 // enable .env file to be used
 // must install dotenv before using (npm i dotenv)
 require('dotenv').config();
 
-var indexRouter = require('./routes/index');
-var listRouter = require('./routes/list');
-var createRouter = require('./routes/create');
-var updateRouter = require('./routes/update');
-var deleteRouter = require('./routes/delete');
+const indexRouter = require('./routes/index');
+const listRouter = require('./routes/list');
+const createRouter = require('./routes/create');
+const updateRouter = require('./routes/update');
+const deleteRouter = require('./routes/delete');
+const authRouter = require('./routes/auth');
 
-var app = express();
+const app = express();
 
 // using URI in .env file instead of raw URI
 mongoose
@@ -38,6 +39,7 @@ app.use('/list', listRouter);
 app.use('/create', createRouter);
 app.use('/update', updateRouter);
 app.use('/delete', deleteRouter);
+app.use('/auth', authRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
