@@ -13,14 +13,4 @@ router.get(
   })
 );
 
-router.get(
-  "/:id",
-  asyncHandler(async (req, res) => {
-    const postId = req.params.id;
-    const post = await Post.findById(postId);
-
-    res.render("post", { post });
-  })
-);
-
 module.exports = router;

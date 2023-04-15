@@ -1,7 +1,8 @@
 const { Router } = require("express");
-const router = Router();
 const asyncHandler = require("../utils/async-handler");
 const { User } = require("../models");
+const router = Router();
+const { checkSignupForm } = require("../middleware");
 
 router.get(
   "/",
@@ -22,11 +23,11 @@ router.post(
     }
 
     if (password !== user.password) {
-      res.send('wrong password!');
+      res.send("wrong password!");
       return;
     }
 
-    res.redirect('/');
+    res.redirect("/");
   })
 );
 
@@ -39,6 +40,7 @@ router.get(
 
 router.post(
   "/signup",
+  checkSignupForm,
   asyncHandler(async (req, res, next) => {
     const { email, password } = req.body;
 
